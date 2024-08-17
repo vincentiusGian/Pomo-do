@@ -8,8 +8,8 @@ import Todo from "./components/Todo";
 function App() {
   return (
     <div className="App font-mono">
-      <header className="App-header">
-        <div className="navbar bg-base-100 p-4 md:p-10 flex flex-wrap">
+      <header className="App-header sticky top-0 w-full">
+        <div className="navbar bg-base-100 p-4 md:p-10 flex flex-wrap ">
           <div className="flex-1">
             <DarkMode />
           </div>
@@ -18,7 +18,7 @@ function App() {
           </div>
         </div>
       </header>
-      <Modal className="text-black" />
+      <Modal className="text-black p-4" />
       <div className="grid justify-items-center m-4 md:m-10">
         <Pomodoro />
       </div>
