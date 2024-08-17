@@ -63,10 +63,10 @@ const Todo = () => {
               <FaPlus />
             </button>
           </div>
-          <div className="mt-4">
+          <div className="mt-4 ">
             {todoList.map((item, index) => {
               return (
-                <TodoItems
+                <TodoItems 
                   toggle={toggle}
                   deleteTodo={deleteTodo}
                   key={index}
