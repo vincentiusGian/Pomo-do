@@ -7,13 +7,13 @@ const Modal = () => {
     let quotes = [];
 
     async function loadQuotes() {
-        const response = await fetch("https://type.fit/api/quotes");
+        const response = await fetch("");
         quotes = await response.json();
     }
 
     const [quote, setQuote] = useState({
-      text: "It takes courage to grow up and become who you really are.",
-      author: "E.E. Cummings",
+      text: "Jangan menyerah selagi masih bisa berkata ingin menyerah.",
+      author: "Vincentius Gian Junius",
     })
 
     const random = () => {

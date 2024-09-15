@@ -2,24 +2,36 @@ import { useEffect, useState } from "react";
 import { TfiReload } from "react-icons/tfi";
 
 const Pomodoro = () => {
-  const [time, setTime] = useState(1500);
-  const [isActive, setIsActive] = useState(true);
-  const [startTime, setStartTime] = useState(Date.now());
+  const [time, setTime] = useState(1500); // 25 menit dalam detik
+  const [isActive, setIsActive] = useState(false); // Status aktif/tidak
+  const [pausedTime, setPausedTime] = useState(1500); // Menyimpan waktu saat dihentikan
+  const [startTime, setStartTime] = useState(null); // Waktu awal mulai
 
   const handleRestart = () => {
     setTime(1500);
-    setIsActive(false); // Pause the timer briefly to reset
-    setStartTime(Date.now()); // Update the startTime to the current time
-    setIsActive(true);  // Restart the timer
+    setPausedTime(1500); // Reset juga waktu yang tersimpan
+    setIsActive(false); // Hentikan sementara
+  };
+
+  const handleStart = () => {
+    if (!isActive) {
+      // Setel ulang startTime hanya jika timer tidak aktif
+      setStartTime(Date.now());
+      setIsActive(true);
+    }
+  };
+
+  const handleStop = () => {
+    setPausedTime(time); // Simpan waktu tersisa
+    setIsActive(false); // Hentikan timer
   };
 
   useEffect(() => {
     let timer;
-
     if (isActive) {
       timer = setInterval(() => {
         const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
-        const newTime = 1500 - elapsedTime;
+        const newTime = pausedTime - elapsedTime;
 
         if (newTime <= 0) {
           clearInterval(timer);
@@ -30,9 +42,8 @@ const Pomodoro = () => {
         }
       }, 1000);
     }
-
     return () => clearInterval(timer);
-  }, [isActive, startTime]);
+  }, [isActive, startTime, pausedTime]);
 
   return (
     <>
@@ -48,11 +59,23 @@ const Pomodoro = () => {
           seconds
         </div>
       </div>
-      <button 
-        onClick={handleRestart} 
-        className="mt-5 p-2 btn btn-circle rounded-full">
-        <TfiReload />
-      </button>
+      <div className="mt-5 flex space-x-4">
+        <button 
+          onClick={handleStart} 
+          className="p-2 btn rounded-full">
+          Start
+        </button>
+        <button 
+          onClick={handleStop} 
+          className="p-2 btn btn-error text-neutral-content rounded-full">
+          Stop
+        </button>
+        <button 
+          onClick={handleRestart} 
+          className="p-2 btn btn-circle rounded-full">
+          <TfiReload />
+        </button>
+      </div>
     </>
   );
 };
