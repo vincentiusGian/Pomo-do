@@ -3,12 +3,10 @@ import { TfiReload } from "react-icons/tfi";
 import { CgCompressRight } from "react-icons/cg";
 
 const Modal = () => {
-
-  const [quote, setQuote] = useState({
-    text: "Just do it.",
-    author: "Vincentius Gian Junius",
-  })
-
+const quote = {
+  text: "Just do it.",
+  author: "Vincentius Gian Junius",
+}
   return (
     <>
       <button 
