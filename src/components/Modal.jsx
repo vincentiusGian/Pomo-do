@@ -6,11 +6,6 @@ const Modal = () => {
 
     let quotes = [];
 
-    async function loadQuotes() {
-        const response = await fetch("");
-        quotes = await response.json();
-    }
-
     const [quote, setQuote] = useState({
       text: "Just do it.",
       author: "Vincentius Gian Junius",
@@ -21,7 +16,6 @@ const Modal = () => {
       setQuote(select);
     }
 
-    loadQuotes();
 
     return (
         <>
