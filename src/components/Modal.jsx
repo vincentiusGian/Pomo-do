@@ -4,18 +4,12 @@ import { CgCompressRight } from "react-icons/cg";
 
 const Modal = () => {
 
-    let quotes = [];
-
     const [quote, setQuote] = useState({
       text: "Just do it.",
       author: "Vincentius Gian Junius",
     })
 
-    const random = () => {
-      const select = quotes[Math.floor(Math.random()*quotes.length)]
-      setQuote(select);
-    }
-
+   
 
     return (
         <>
@@ -29,9 +23,7 @@ const Modal = () => {
     <div className="modal-action">
       <form method="dialog">
         {/* if there is a button in form, it will close the modal */}
-      <div className="btn btn-sm btn-circle hover:rounded-full">
-      <TfiReload onClick={() => {random()}} />
-      </div>
+     
         <button className="btn btn btn-sm btn-circle btn-ghost absolute right-2 top-2"><CgCompressRight /></button>
       </form>
     </div>
