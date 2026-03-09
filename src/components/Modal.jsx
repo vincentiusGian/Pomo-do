@@ -17,7 +17,7 @@ const Modal = () => {
 <button className="btn btn-lg rounded-md max-w-sm" onClick={()=>document.getElementById('my_modal_5').showModal()}>Motivation</button>
 <dialog id="my_modal_5" className="modal modal-bottom bg-transparent sm:modal-middle">
   <div className="modal-box shadow-2xl border-4 rounded-md border-white">
-    <h3 className="font-bold text-lg">Semangat Calon Mahasiswa UofT Missisauga!</h3>
+    <h3 className="font-bold text-lg">Semangat Calon Mahasiswa UofT Mississauga!</h3>
     <p className="py-4">{quote.text}</p>
     <p> - {quote.author.split(',')[0]}</p>
     <div className="modal-action">
