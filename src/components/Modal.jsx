@@ -19,7 +19,7 @@ const quote = {
         <div className="modal-box shadow-2xl border-4 rounded-md border-white">
 
           <h3 className="font-bold text-lg">
-            Semangat Calon Mahasiswa UofT Mississauga!
+            Semangat Calon Computer Scientist!
           </h3>
 
           <p className="py-4">{quote.text}</p>
@@ -28,9 +28,7 @@ const quote = {
           <div className="modal-action">
             <form method="dialog">
 
-              <div className="btn btn-sm btn-circle hover:rounded-full">
-                <TfiReload />
-              </div>
+  
 
               <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
                 <CgCompressRight />
