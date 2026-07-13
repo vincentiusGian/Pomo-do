@@ -1,4 +1,4 @@
-import { TfiReload } from "react-icons/tfi";
+
 import { CgCompressRight } from "react-icons/cg";
 
 const Modal = () => {
